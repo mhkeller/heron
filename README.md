@@ -9,6 +9,8 @@ See it [here](http://mhkeller.github.io/heron).
 
 Heron uses Google map base layer, which you can style with the [Google Maps API Styled Map Wizard](http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html). That wizard will give you JSON, which you can paste Heron's `Tile style` field.
 
+Don't want to write your own style? Check out [Snazzy Maps](http://snazzymaps.com/).
+
 You can also upload a GeoJSON file and style it with the properties Google supports: <https://developers.google.com/maps/documentation/javascript/3.exp/reference#Data.StyleOptions>
 
 You can grab [`metro-areas.geojson`](https://github.com/mhkeller/heron/blob/master/data/metro-areas.geojson) if you want some data to play around with. Click the `Raw` to download.
