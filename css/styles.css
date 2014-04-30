@@ -1,0 +1,58 @@
+* {
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	font-family: Helvetica,sans-serif;
+}
+ul{
+	margin: 5px 0 0 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+	font-size: 10px;
+	margin-bottom: 2px;
+}
+p{
+	margin: 5px 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: #2677B9;
+}
+a:hover{
+	text-decoration: underline;
+}
+#map-canvas{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.gmnoprint,canvas,#furniture{
+	-webkit-transition: opacity 300ms;
+	-moz-transition: opacity 300ms;
+	-o-transition: opacity 300ms;
+	transition: opacity 300ms;
+}
+.gmnoprint.hidden, canvas.hidden, #furniture.hidden{
+	opacity: 0;
+}
+#furniture{
+	padding: 5px;
+	position: absolute;
+	background-color: #fff;
+	top: 11px;
+	left: 30px;
+	border: 1px solid #ccc;
+}
+input, textarea{
+	width: 225px;
+}
+textarea,input{
+	display: block;
+	margin-top: 5px;
+}
