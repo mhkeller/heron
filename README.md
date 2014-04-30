@@ -11,6 +11,8 @@ Heron uses Google map base layer, which you can style with the [Google Maps API 
 
 You can also upload a GeoJSON file and style it with the properties Google supports: <https://developers.google.com/maps/documentation/javascript/3.exp/reference#Data.StyleOptions>
 
+You can grab [`metro-areas.geojson`](https://github.com/mhkeller/heron/blob/master/data/metro-areas.geojson) if you want some data to play around with. Click the `Raw` to download.
+
 From their documentation:
 
 | Property | Type | Description |
