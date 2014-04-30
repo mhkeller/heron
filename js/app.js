@@ -36,18 +36,6 @@
 		}
 	}
 
-	function resizeTextArea () {
-		$('textarea').each(function(idx, el){
-			var $text_area = $(el);
-			$text_area.css('height', 'auto')
-			$text_area.css('height', $text_area[0].scrollHeight+'px')
-		});
-	}
-	/* 0-timeout to get the already changed text */
-	function delayedResizeTextArea () {
-		window.setTimeout(resizeTextArea, 0);
-	}
-
 	function createMap(center, zoom, style, geoData, geoStyle) {
 		var mapOptions = {
 			zoom: zoom,
@@ -125,13 +113,6 @@
 			bindMapHandlers();
 		});
 
-		// Listen for changes to textarea size
-		var $styleInput = $('#style-input');
-		$styleInput.on('change',	resizeTextArea);
-		$styleInput.on('cut',		 delayedResizeTextArea);
-		$styleInput.on('paste',	 delayedResizeTextArea);
-		$styleInput.on('drop',		delayedResizeTextArea);
-		$styleInput.on('keydown', delayedResizeTextArea);
 	}
 
 	function updateCenter(centerObj){
@@ -142,7 +123,6 @@
 		$('#style-input').html(JSON.stringify(default_style, null, 2))
 		$('#zoom-input').val(default_zoom);
 		$('#geojson-style-input').html(JSON.stringify(default_geojson_style, null, 2))
-		resizeTextArea();
 		updateCenter(default_center);
 	}
 

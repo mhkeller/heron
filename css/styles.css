@@ -49,6 +49,12 @@ a:hover{
 	left: 30px;
 	border: 1px solid #ccc;
 }
+#style-input{
+	height: 130px;
+}
+#geojson-style-input{
+	height: 90px;
+}
 input, textarea{
 	width: 225px;
 }
