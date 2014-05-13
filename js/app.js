@@ -1,13 +1,7 @@
 (function(){
 	'use strict'
 
-	var default_style = [
-			{
-				stylers: [
-					{ saturation: -100 }
-				]
-			}
-		],
+	var default_style = [ { "featureType": "road", "stylers": [ { "visibility": "off" } ] },{ "featureType": "administrative.locality", "elementType": "labels", "stylers": [ { "visibility": "off" } ] },{ "featureType": "poi", "stylers": [ { "visibility": "off" } ] },{ "featureType": "landscape", "stylers": [ { "visibility": "off" } ] },{ "featureType": "water", "elementType": "labels", "stylers": [ { "visibility": "off" } ] },{ "featureType": "landscape.natural", "elementType": "geometry", "stylers": [ { "visibility": "on" }, { "color": "#f9f9f9" } ] },{ "featureType": "administrative.country", "elementType": "geometry.stroke", "stylers": [ { "weight": 0.4 } ] },{ "featureType": "administrative.neighborhood", "elementType": "labels", "stylers": [ { "visibility": "off" } ] },{ "featureType": "administrative.province", "elementType": "labels", "stylers": [ { "saturation": -100 } ] },{ "featureType": "water", "elementType": "geometry", "stylers": [ { "color": "#c8d6ea" } ] },{ "featureType": "administrative.province", "elementType": "geometry", "stylers": [ { "visibility": "on" }, { "weight": 0.8 }, { "color": "#cccccc" } ] },{ },{ "featureType": "administrative", "elementType": "geometry.fill", "stylers": [ { "visibility": "on" }, { "color": "#f9f9f9" } ] },{ "featureType": "transit", "stylers": [ { "visibility": "off" } ] },{ "elementType": "labels", "stylers": [ { "lightness": 70 } ] }],
 		default_center = new google.maps.LatLng(37.3933, -110.45904),
 		geojson_data,
 		default_geojson_style = {
@@ -84,8 +78,8 @@
 
 		google.maps.event.addListener(map, 'click', function(e) {
 			clearMarkers();
-			marker = new google.maps.Marker({position: e.latLng, map: map});
-			map.panTo(e.latLng);
+			marker = new google.maps.Marker({position: e.latLng, map: map, icon: '../imgs/marker.png'});
+			// map.panTo(e.latLng);
 		});
 
 		google.maps.event.addListener(map, 'center_changed', function(e) {
