@@ -53,11 +53,20 @@
 		if (geoData) { 
 			map.data.addGeoJson(geoData); 
 			map.data.setStyle(geoStyle); 
-		};
+		}
+
+		if (marker){
+			marker.setMap(map);
+		}
 	}
 
 	function clearMarkers(){
 		if (marker) marker.setMap(null);
+		marker = null;
+	}
+
+	function addMarker(latLng){
+		marker = new google.maps.Marker({position: latLng, map: map, icon: 'https://raw.githubusercontent.com/ajam/heron/master/imgs/marker.png'});
 	}
 
 	function bindDocHandlers(){
@@ -76,23 +85,6 @@
 			if (e.keyCode == 27){
 				clearMarkers();
 			}
-		})
-	}
-
-	function bindMapHandlers(){
-
-		google.maps.event.addListener(map, 'click', function(e) {
-			clearMarkers();
-			marker = new google.maps.Marker({position: e.latLng, map: map, icon: 'https://raw.githubusercontent.com/ajam/heron/master/imgs/marker.png'});
-			// map.panTo(e.latLng);
-		});
-
-		google.maps.event.addListener(map, 'center_changed', function(e) {
-			updateCenter(map.getCenter());
-		});
-
-		google.maps.event.addListener(map, 'zoom_changed', function(e) {
-			$('#zoom-input').val(map.getZoom());
 		});
 
 		// On map refresh
@@ -110,6 +102,23 @@
 			var new_geojson_style = JSON.parse( $('#geojson-style-input').val() );
 			createMap(new_center, new_zoom, new_style, geojson_data, new_geojson_style);
 			bindMapHandlers();
+		});
+	}
+
+	function bindMapHandlers(){
+
+		google.maps.event.addListener(map, 'click', function(e) {
+			clearMarkers();
+			addMarker(e.latLng);
+			// map.panTo(e.latLng);
+		});
+
+		google.maps.event.addListener(map, 'center_changed', function(e) {
+			updateCenter(map.getCenter());
+		});
+
+		google.maps.event.addListener(map, 'zoom_changed', function(e) {
+			$('#zoom-input').val(map.getZoom());
 		});
 
 	}
