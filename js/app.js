@@ -12,6 +12,8 @@
 	  },
 	  default_zoom = 4;
 
+	var label_eraser = { "elementType": "labels", "stylers": [ { "visibility": "off" } ] };
+
 	var marker,
 			map;
 
@@ -43,6 +45,9 @@
 		  strokeColor: '#CCC',
 		  strokeWeight: 1
 		};
+
+		// If we are hiding labels, add that style
+		if (!$('#labels:checked').length) style.push(label_eraser);
 
 		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 		if (geoData) { 
@@ -114,7 +119,7 @@
 	}
 
 	function initInputs(){
-		$('#style-input').html(JSON.stringify(default_style, null, 2))
+		$('#style-input').html(JSON.stringify(default_style, null, 2));
 		$('#zoom-input').val(default_zoom);
 		$('#geojson-style-input').html(JSON.stringify(default_geojson_style, null, 2))
 		updateCenter(default_center);
