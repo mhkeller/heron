@@ -78,7 +78,7 @@
 
 		google.maps.event.addListener(map, 'click', function(e) {
 			clearMarkers();
-			marker = new google.maps.Marker({position: e.latLng, map: map, icon: '../imgs/marker.png'});
+			marker = new google.maps.Marker({position: e.latLng, map: map, icon: 'https://raw.githubusercontent.com/ajam/heron/master/imgs/marker.png'});
 			// map.panTo(e.latLng);
 		});
 
