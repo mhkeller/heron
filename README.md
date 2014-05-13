@@ -3,7 +3,7 @@ Heron
 
 A simple interface for making locator maps with styled tiles and GeoJson.
 
-See it [here](http://mhkeller.github.io/heron).
+See it [here](http://ajam.github.io/heron).
 
 ## How to use
 
