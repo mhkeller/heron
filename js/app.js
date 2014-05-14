@@ -84,12 +84,17 @@
 			}
 			if (e.keyCode == 27){
 				clearMarkers();
+				$('#splash').hide();
 			}
 		});
 
 		$('#advanced-toggle').on('click', function(){
 			$('#advanced-inputs').toggle();
-		})
+		});
+
+		$('.close-parent').on('click', function(){
+			$(this).parent().hide();
+		});
 
 		// On map refresh
 		$('#refresher').submit(function(e){
