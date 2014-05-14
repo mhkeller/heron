@@ -22,6 +22,13 @@ a{
 	text-decoration: none;
 	color: #2677B9;
 }
+h3{
+	margin: 10px 0 0 0px;
+	font-size: 15px;
+}
+.mono{
+	font-family: courier, monospace;
+}
 label{
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -69,4 +76,16 @@ input, textarea{
 textarea,input{
 	display: block;
 	margin-top: 5px;
+}
+#advanced-inputs{
+	display: none;
+}
+#advanced-toggle{
+	font-size: 10px;
+	margin: 5px 0;
+	color: #2677B9;
+}
+#advanced-toggle:hover{
+	text-decoration: underline;
+	cursor: pointer;
 }

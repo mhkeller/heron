@@ -87,6 +87,10 @@
 			}
 		});
 
+		$('#advanced-toggle').on('click', function(){
+			$('#advanced-inputs').toggle();
+		})
+
 		// On map refresh
 		$('#refresher').submit(function(e){
 			e.preventDefault();
