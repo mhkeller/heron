@@ -102,6 +102,40 @@ a:hover{
 input, textarea{
 	width: 225px;
 }
+#address-search input{
+	display: inline;
+}
+#address-search input[type="text"]{
+	width: 80%;
+}
+#address-search input[type="submit"]{
+	width: 15%;
+}
+#address-search input[type="submit"].searching{
+	animation: spin-around 1s infinite linear;
+	-webkit-animation: spin-around 1s infinite linear;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes spin-around {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Standard syntax */
+@keyframes spin-around
+{
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+} 
 textarea,input{
 	display: block;
 	margin-top: 5px;

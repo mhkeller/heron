@@ -66,7 +66,34 @@
 	}
 
 	function addMarker(latLng){
+		clearMarkers();
 		marker = new google.maps.Marker({position: latLng, map: map, icon: 'https://raw.githubusercontent.com/ajam/heron/master/imgs/marker.png'});
+	}
+
+	function fetchGeoCoords(adrs){
+		return $.ajax({
+			url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+adrs+'&sensor=false'
+		})
+	}
+
+	function geoCode(adrs){
+		fetchGeoCoords(adrs).success(function(response){
+			if (response.results[0]){
+				var location = response.results[0].geometry.location;
+				var latLng = new google.maps.LatLng(location.lat, location.lng);
+				map.panTo(latLng);
+				addMarker(latLng);
+			} else {
+				alert('Hmm, I couldn\'t find that location.');
+			}
+		})
+		.always(function(){
+			resetGoButton();
+		})
+	}
+
+	function resetGoButton(){
+		$('#address-search input[type="submit"]').attr('disabled', false).attr('value', 'GO')//.removeClass('searching');
 	}
 
 	function bindDocHandlers(){
@@ -96,6 +123,14 @@
 			$(this).parent().hide();
 		});
 
+		$('#address-search').on('submit', function(e){
+			e.preventDefault();
+			$('#address-search input[type="submit"]').attr('disabled', 'disabled').attr('value','...')//.addClass('searching');
+			var adrs = $(this).find('input[type="text"]').val();
+			geoCode(adrs);
+			return false;
+		});
+
 		// On map refresh
 		$('#refresher').submit(function(e){
 			e.preventDefault();
@@ -117,7 +152,6 @@
 	function bindMapHandlers(){
 
 		google.maps.event.addListener(map, 'click', function(e) {
-			clearMarkers();
 			addMarker(e.latLng);
 			// map.panTo(e.latLng);
 		});
@@ -133,7 +167,7 @@
 	}
 
 	function updateCenter(centerObj){
-		$('#center-input').val(centerObj.lat() + ', ' + centerObj.lng())
+		$('#center-input').val(centerObj.lat() + ', ' + centerObj.lng());
 	}
 
 	function initInputs(){
