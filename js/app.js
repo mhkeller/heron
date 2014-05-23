@@ -67,7 +67,7 @@
 
 	function addMarker(latLng){
 		clearMarkers();
-		marker = new google.maps.Marker({position: latLng, map: map, icon: 'https://raw.githubusercontent.com/ajam/heron/master/imgs/marker.png'});
+		marker = new google.maps.Marker({position: latLng, map: map, icon: 'imgs/marker.png'});
 	}
 
 	function fetchGeoCoords(adrs){
