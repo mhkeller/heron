@@ -66,7 +66,7 @@
 	}
 
 	function addMarker(latLng){
-		// Uncomment the following line if you want to allow multiple markers
+		// Comment out the following line if you want to allow multiple markers
 		clearMarkers();
 		marker = new google.maps.Marker({position: latLng, map: map, icon: 'imgs/marker.png'});
 	}
