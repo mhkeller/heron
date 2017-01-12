@@ -89,8 +89,8 @@ a:hover{
 	padding: 5px;
 	position: absolute;
 	background-color: #fff;
-	top: 11px;
-	left: 30px;
+	top: 50px;
+	left: 10px;
 	border: 1px solid #ccc;
 }
 #style-input{
@@ -135,7 +135,7 @@ input, textarea{
 	to {
 		transform: rotate(360deg);
 	}
-} 
+}
 textarea,input{
 	display: block;
 	margin-top: 5px;
