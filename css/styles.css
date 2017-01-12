@@ -44,6 +44,9 @@ h3{
 	line-height: 18px;
 	box-shadow: 0 0 12px #ccc;
 }
+#splash h2{
+	line-height: 25px;
+}
 #splash p{
 	font-size: 13px;
 }
